@@ -23,7 +23,7 @@ You are tasked with designing and implementing the backend systems for a **loan 
 
 ### Current Task Description
 
-#### [Describe your specific development task, feature request, or issue you're working on]
+[Describe your specific development task, feature request, or issue you're working on]
 
 Example:
 
@@ -35,9 +35,9 @@ Example:
 
 ### Existing Codebase Structure
 
-#### [Provide your current project structure, key packages, or relevant file organization]
+[Provide your current project structure, key packages, or relevant file organization]
 
-Example:
+```Example:
 src/
 ├── main/java/com/jpmorgan/syndication/
 │ ├── deal/
@@ -56,11 +56,12 @@ src/
 └── test/java/com/jpmorgan/syndication/
 ├── deal/DealServiceTest.java
 └── integration/DealIntegrationTest.java
+```
 
 
 ### Current Test Structure & Examples
 
-#### [Share your existing test files, test patterns, or specific test cases you're working with]
+[Share your existing test files, test patterns, or specific test cases you're working with]
 
 Example:
 
@@ -91,7 +92,7 @@ void shouldHandleConcurrentLenderCommitments() {
 
 ### Legacy System Constraints
 
-#### [Describe any existing system limitations, legacy code patterns, or constraints you must work within]
+[Describe any existing system limitations, legacy code patterns, or constraints you must work within]
 
 Example:
 
@@ -103,7 +104,7 @@ Example:
 
 ### Current Dependencies & Configuration
 
-#### [Share relevant portions of your pom.xml, application.yml, or key configuration files]
+[Share relevant portions of your pom.xml, application.yml, or key configuration files]
 
 Example:
 
@@ -118,7 +119,7 @@ hazelcast-spring
 
 ### Specific Technical Challenges
 
-#### [Describe particular issues you're facing or requirements you need to meet]
+[Describe particular issues you're facing or requirements you need to meet]
 
 Example:
 
