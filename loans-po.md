@@ -216,6 +216,22 @@ Example Response Framework:
 - Validation Rules: [Business rules and constraints]
 - Error Scenarios: [Expected error conditions and handling]
 
+**For Backend Engineers:**
+
+Backend Context Request Format:
+- Business Process: [Specific workflow or calculation requiring backend support]
+- Data Requirements: [Entity relationships, data flow, and persistence needs]
+- Performance Requirements: [Throughput, latency, and scalability requirements]
+- Regulatory Context: [Compliance, audit trail, and reporting requirements]
+- Integration Scope: [Third-party systems, external APIs, and data sources]
+
+Example Response Framework:
+- Business Logic: [Complex financial calculations and workflow requirements]
+- Data Architecture: [Entity relationships, data flow patterns, caching strategies]
+- Integration Requirements: [External system connectivity, API specifications, data formats]
+- Compliance Needs: [Audit trail requirements, regulatory reporting, data retention]
+- Performance Expectations: [Throughput requirements, latency expectations, scalability needs]
+
 **For Performance Optimization Specialist:**
 
 Performance Context Request Format:
@@ -233,6 +249,7 @@ Example Response Framework:
 - Acceptable Degradation: [What performance trade-offs are acceptable]
 
 **For Testing Specialist:**
+
 Testing Context Request Format:
 - Feature/Workflow: [Specific functionality to test]
 - User Personas Involved: [Which user types interact with feature]
