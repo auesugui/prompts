@@ -1,6 +1,6 @@
 # Pragmatic Coordination with Limited Domain Knowledge
 
-Given your realistic constraints, here's a pragmatic approach to coordinate with your subagents while working with limited domain knowledge:
+A pragmatic approach to coordinate with your subagents while working with limited domain knowledge:
 
 ## Create a "Just-in-Time" Knowledge Discovery Framework
 
