@@ -1,59 +1,78 @@
-# Agent Task: Set Up `_local/` Folder Convention
+# Scaffold `_local/` Convention for Personal Agent Workflows
 
-## What You're Doing
+## Context
 
-You are setting up a `_local/` folder convention in this repository. This creates a gitignored personal workspace where individual developers can keep scratch files, experiments, drafts, and local-only content without polluting the shared repository. This is infrastructure — keep it simple.
+This repository is a shared UI codebase with multiple developers. We need a convention that allows individual developers to create personal agent workflow files (scenarios, HOPs, scratch prompts) without polluting the shared repo. These files are gitignored and never pushed.
 
-## Steps
+## Requirements
 
-### 1. Create the `_local/` directory at the repository root
+1. **Add gitignore rule**: Append `**/_local/` to the project's `.gitignore` so that any `_local/` folder at any depth is excluded from version control.
+
+2. **Create a `_local/` directory** at the project root with the following structure:
 
 ```
 _local/
+├── README.md
+├── scenarios/
+│   └── .gitkeep
+└── hops/
+    └── .gitkeep
 ```
 
-Add a `.gitkeep` file inside so the directory structure is visible in the repo even though contents are ignored.
+3. **Create `_local/README.md`** with the following content:
 
-### 2. Update `.gitignore`
+```markdown
+# _local/ — Personal Agent Workflows
 
-Add the following rule to the repository's `.gitignore` file. Place it in a clearly labeled section so its purpose is obvious:
+This directory is **gitignored** and exists only on your local machine. Use it to store personal agent workflow files that are specific to how you work — scenarios, higher-order prompts (HOPs), scratch prompts, or any agent orchestration artifacts.
 
-```
-# Personal workspace — local experiments, drafts, scratch files
-# Each developer's _local/ content is gitignored and never committed
-_local/*
-!_local/.gitkeep
-!_local/README.md
-```
+## Structure
 
-This ignores everything inside `_local/` except the `.gitkeep` (to preserve the folder) and the `README.md` (to document the convention).
+- `scenarios/` — Markdown files describing step-by-step user workflows for agent-driven validation. Each file targets a specific page or flow in the application.
+- `hops/` — Higher-order prompts that wrap scenario files in consistent execution patterns (setup, screenshot cadence, reporting, cleanup).
 
-### 3. Create `_local/README.md`
+## Convention
 
-Write a brief README that explains:
+- Any folder named `_local/` at any depth in this repo is gitignored.
+- You can also create `_local/` folders inside specific directories (e.g., `src/components/_local/`) for colocated personal workflows.
+- These files are for your local agent tooling (Copilot, Claude Code, etc.) and are never shared.
 
-- **What this folder is**: A gitignored personal workspace for each developer
-- **What goes here**: Scratch files, personal skill drafts, experimental Playwright scenarios, local test fixtures, debugging notes, anything you don't want to commit but want to keep alongside the repo
-- **What does NOT go here**: Nothing that the team depends on. If another developer needs your file, it doesn't belong in `_local/` — promote it to the shared repo
-- **Convention**: This folder is gitignored so its contents are invisible to the rest of the team. You can organize it however you want internally. If you want sub-folders like `_local/playwright/`, `_local/skill-drafts/`, `_local/scratch/`, go for it
+## Example Scenario File
 
-Keep the README concise — 10-15 lines max. Developers will read it once and then never look at it again. That's fine.
+```markdown
+# Grid Sorting Validation
 
-### 4. Verify
+## Target
+http://localhost:3000/orderbook
 
-After setup, confirm:
-- `git status` does not show any `_local/` contents (except README.md and .gitkeep)
-- Creating a test file in `_local/test.txt` does not appear in `git status`
-- The `.gitkeep` and `README.md` ARE tracked
-
-### 5. Commit
-
-Commit the changes with a conventional commit message:
-
-```
-chore: add _local/ folder convention for personal developer workspaces
+## Steps
+1. Navigate to the orderbook grid
+2. Click the "Price" column header to sort ascending
+3. Verify rows are sorted by price ascending
+4. Click "Price" column header again to sort descending
+5. Verify rows are sorted by price descending
+6. Click "Volume" column header
+7. Verify rows are sorted by volume ascending
 ```
 
-## That's it
+## Example HOP File
 
-Do not over-engineer this. It's a folder and a gitignore rule. The value is in the convention existing, not in the implementation being clever.
+```markdown
+# Debug UI Workflow
+
+## Arguments
+$1 = path to scenario file
+
+## Workflow
+1. Launch browser against target URL from scenario
+2. Load and parse steps from $1
+3. Execute each step, capture screenshot after each
+4. If any step fails, capture DOM state + console errors
+5. Save all artifacts to _local/output/{timestamp}/
+6. Summarize: passed/failed steps, screenshot paths, errors
+```
+```
+
+4. **Do not create any sample scenario or HOP files** beyond what's in the README examples. The developer will create their own.
+
+5. **Verify** the `.gitignore` rule is working by confirming `git status` does not show any `_local/` files as untracked.
